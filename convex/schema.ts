@@ -7,7 +7,7 @@ import { v } from "convex/values";
 export default defineSchema({
   ...authTables,
   messages: defineTable({
-    author: v.string(),
+    userId: v.id("users"),
     body: v.string(),
   }),
 });
