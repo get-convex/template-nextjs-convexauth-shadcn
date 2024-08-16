@@ -13,7 +13,7 @@ export default function SignInPage() {
   const [step, setStep] = useState<"signIn" | "linkSent">("signIn");
 
   return (
-    <div className="container my-auto">
+    <div className="flex min-h-screen w-full container my-auto mx-auto">
       <div className="max-w-[384px] mx-auto flex flex-col my-auto gap-4 pb-8">
         {step === "signIn" ? (
           <>
@@ -71,6 +71,7 @@ function SignInWithMagicLink({
       onSubmit={(event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
+        formData.set("redirectTo", "/product");
         signIn("resend", formData)
           .then(handleLinkSent)
           .catch((error) => {
